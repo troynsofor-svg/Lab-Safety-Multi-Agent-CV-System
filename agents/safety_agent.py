@@ -66,3 +66,7 @@ class SafetyAgent:
             "events": events
         }
 
+class SafetyAgent:
+    def evaluate(self, scene_msg):
+        events = self.rule_engine.check(scene_msg)
+        return build_decision_message(events)

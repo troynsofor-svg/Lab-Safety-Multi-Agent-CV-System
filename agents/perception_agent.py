@@ -115,3 +115,7 @@ print("Processing completed without AttributeError.")
 print(f"Detected persons: {len(persons)}")
 print(f"Detected hazards: {len(hazards)}")
 
+class PerceptionAgent:
+    def process_frame(self, frame):
+        detections = self.model(frame)
+        return build_scene_message(detections)

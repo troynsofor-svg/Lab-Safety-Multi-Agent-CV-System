@@ -1,98 +1,100 @@
 # Lab Safety Multi‑Agent Computer Vision System
 
-A multi‑agent computer vision system that detects lab safety violations using perception, reasoning, and action pipelines.
+This multi‑agent computer vision system discovers lab safety violations applying perception, reasoning, and action pipelines.
 
 Author
 Troy – ITAI 1378, Summer 2026
 
 Project Tier
-Tier 3 – This project implements multiple agents (Perception Agent, Safety Agent, Orchestrator) with defined message formats, structured hand‑offs, and full trace logging, satisfying the Tier‑3 requirement for multi‑agent coordination.
+Tier 3 – This project uses three agents (Perception Agent, Safety Agent, Orchestrator) with defined message formats, organized hand‑offs, and entire trace logging, fulfilling the Tier‑3 demand for multi‑agent coordination.
 
 Problem & Solution
-The Problem
-Laboratory environments contain hazards such as open flames, chemicals, and equipment. Human operators may forget PPE (gloves, goggles, lab coats) or unknowingly approach dangerous areas. Manual monitoring is inconsistent and error‑prone.
+# The Problem
+Laboratory environments have hazards like open flames, chemicals, and equipment. Human operators might disregard PPE (gloves, goggles, lab coats) or unknowingly approach dangerous areas. Manual monitoring is incompatible and error‑prone.
 
-The Agent
-This system perceives lab scenes using YOLO detection, reasons about PPE compliance and hazard proximity using rule‑based logic, and acts by generating annotated images, violation logs, and run summaries. All agent interactions are logged for traceability.
+# The Agent
+This system observes lab scenes applying YOLO detection, thinks about PPE compliance and proximate hazards using rule‑based logic, and acts by providing annotated pictures, violation logs, and run summaries. Every agent interaction is logged for traceability.
 
-Impact
-Lab managers, instructors, and safety officers benefit from automated monitoring that reduces risk, improves compliance, and saves time otherwise spent manually reviewing footage or images.
+# Impact
+Laboratory coordinators, teachers, and safety officers have benefits from automated monitoring that decreases risk, enhances compliance, and saves time otherwise spent manually looking at footage or pictures.
 
-Agent Architecture
+# Agent Architecture
 Pipeline:  
 Input → Perception (CV tools) → Reasoning → Action → Output
 
-Agent framework: Custom multi‑agent loop with explicit message passing
+1. Agent framework: A type of multi‑agent loop with clear message passing
 
-CV models/tools: YOLOv8 (Ultralytics), custom PPE/hazard classifiers
+2. CV models/tools: YOLOv8 (Ultralytics), types of PPE/hazard classifiers
 
-Reasoning: Rule‑based safety engine (distance thresholds, PPE checks, hazard proximity)
+3. Reasoning: Rule‑based safety engine (distance limits, PPE checks, proximate hazards)
 
-Communication (multi-agent): JSON message schema + orchestrator hand‑off logging
+4. Communication (multi-agent): JSON message schema + orchestrator hand‑off logging
 
-Architecture diagram is available in docs/architecture.md.
+Architecture diagram is present in docs/architecture.md.
 
 Dataset / Test Inputs
-Source: Non‑copyrighted lab‑like images (people, PPE, hazards)
+Source: Non‑copyrighted laboratory pictures (humans, PPE, hazards)
 
-Size: 10 sample images included in data/sample/
+Size: 10 sample pictures contained in the data/sample/ folder.
 
-Classes: person, lab coat, gloves, goggles, open flame, chemical container
+Classes: person, lab coat, gloves, goggles, chemicals, chemical bottle, face shield, and mask
 
-Preprocessing: Resize to 640×640, normalization, corrupt image detection
+Preprocessing: Change the size to 640×640, normalization, corrupt image detection
 
-How to Run
+# How to Run
 Installation
-Code
-git clone https://github.com/username/Lab-Safety-Multi-Agent-CV-System.git
+Code:
+git clone https://.com/username/Lab-Safety-Multi-Agent-CV-System.git
 cd Lab-Safety-Multi-Agent-CV-System
 pip install -r requirements.txt
 cp .env.example .env   # add API keys only if using LLM reasoning
-Quick Start
-Place your test images in:
+
+1. Quick Start
+Place your test images in with this code:
 
 Code
 data/input/images/
+
 Run the orchestrator:
-
-Code
+Code:
 python agents/orchestrator.py --image data/sample/test1.jpg
-Or run the full batch pipeline:
 
-Code
+Or run the full batch pipeline with this code:
+Code:
 python agents/orchestrator.py
-Outputs appear in:
 
+Outputs appear in:
 Code
 results/run_YYYYMMDD_HHMMSS/
-Evaluation & Results
+
+# Evaluation & Results
 CV Metrics
-Model	Precision	Recall	mAP	Speed (ms/img)
-YOLOv8n	~0.75	~0.70	~0.72	~6ms
+Model: YOLOv11 Object Detection (Nano)
+mAP@50: 49.7%
+Precision: 40.7%
+Recall: 56.6%
+F1: 47.4%
 
-
-Agent-Level Metrics
+# Agent-Level Metrics
 Task success rate: 100% on valid images
 
-Steps per task: 3 (perception → reasoning → action)
+Steps per task: 3 steps (perception → reasoning → action)
 
-Latency: ~0.1–0.2s per image
+Latency: ~0.1–0.2s per picture
 
-Success Cases
+# Success Cases
 Annotated images stored in:
-
-Code
+Code:
 results/images/
-Failure Cases
-Corrupt or unreadable images produce:
 
-Code
+# Failure Cases
+Corrupt or unreadable pictures provide:
+Code:
 *_scene.json (preprocessing_error)
 with explanations.
 
-Example Agent Run
-A full trace from results/traces/frame_00123_trace.json:
-
+# Example Agent Run
+An entire trace from results/traces/frame_00123_trace.json:
 Code
 Input:
   data/input/images/person_no_gloves.jpg
@@ -111,35 +113,36 @@ Action:
   Annotated image saved
   Violation logged
   Summary updated
-Key Learnings
-YOLOv8 is fast and reliable for general detection, but PPE detection requires fine‑tuning.
 
-Rule‑based reasoning is simple and transparent, making violations easy to explain.
+# Key Learnings
+1. YOLOv11 is the tiniest, quickest, and most lightest object detection model in the Ultralytics YOLO11 family, but PPE detection needs fine‑tuning.
 
-Multi‑agent orchestration improves modularity and debugging.
+2. Rule‑based reasoning is easy and translucent, making violations simple to interpret.
 
-Google Colab cannot access webcams; batch image ingestion is the correct approach.
+3. Multi‑agent orchestration enhances modularity and troubleshooting.
 
-AI Usage
+4. Google Colab doesn't have no access to webcams; batch image ingestion is the accurate method.
+
+# AI Usage
 See docs/AI_usage_log.md for detailed attribution and usage notes.
 
-Future Improvements
-Add PPE classifier trained on lab-specific images
+# Future Improvements
+1. Include PPE classifier trained on lab-concrete pictures
 
-Add hazard segmentation for more precise detection
+2. Add danger divisions for more accurate detection
 
-Add temporal reasoning (track violations over time)
+3. Include chronological reasoning (identify violations over time)
 
-Add LLM-based reasoning for complex safety policies
+4. Include LLM-based reasoning for sophisticated safety rules
 
-Add dashboard UI for real-time monitoring
+5. Include dashboard UI for real-time monitoring
 
-References
+# References
 Ultralytics YOLOv8 documentation
 
 OpenCV Python documentation
 
 Course materials from ITAI 1378
 
-License
+# License
 Academic use only.

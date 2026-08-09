@@ -1,0 +1,15 @@
+{
+  "image": "test/images/pexels-photo-5726701_avif.jpg",
+  "detections": [
+    "lab_coat",
+    "gloves",
+    "goggles"
+  ],
+  "ppe_present": ["lab_coat", "gloves", "goggles"],
+  "ppe_missing": [],
+  "hazards_detected": [],
+  "is_compliant": true,
+  "hazard_level": "none",
+  "final_decision": "SAFE",
+  "explanation": "All required PPE detected and no hazards present."
+}

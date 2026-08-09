@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 8
+names: ['chemical bottle', 'chemicals', 'face shield', 'gloves', 'googles', 'lab coat', 'mask', 'person']
+
+roboflow:
+  workspace: troy-nsofor
+  project: ppe-detection-dataset-qdp63
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/troy-nsofor/ppe-detection-dataset-qdp63/dataset/4

@@ -1,0 +1,5 @@
+tools/
+│
+├── detector.py          # YOLOv11 inference wrapper
+├── ppe_classifier.py    # PPE compliance classifier
+└── hazard_classifier.py # Hazard detection classifier

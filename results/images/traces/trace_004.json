@@ -1,0 +1,14 @@
+{
+  "image": "test/images/female-scientist.jpg",
+  "detections": [
+    "lab_coat",
+    "goggles"
+  ],
+  "ppe_present": ["lab_coat", "goggles"],
+  "ppe_missing": ["gloves"],
+  "hazards_detected": [],
+  "is_compliant": false,
+  "hazard_level": "none",
+  "final_decision": "UNSAFE",
+  "explanation": "Gloves missing; PPE compliance not met."
+}

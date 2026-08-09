@@ -1,0 +1,14 @@
+{
+  "image": "test/images/fluorescent-solution.jpg",
+  "detections": [
+    "unsafe_equipment",
+    "no_gloves"
+  ],
+  "ppe_present": [],
+  "ppe_missing": ["lab_coat", "gloves", "goggles"],
+  "hazards_detected": ["unsafe_equipment", "no_gloves"],
+  "is_compliant": false,
+  "hazard_level": "high",
+  "final_decision": "UNSAFE",
+  "explanation": "Multiple hazards detected and all PPE missing."
+}

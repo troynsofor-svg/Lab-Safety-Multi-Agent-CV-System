@@ -1,0 +1,14 @@
+{
+  "image": "test/images/images-7.jpeg",
+  "detections": [
+    "lab_coat",
+    "no_goggles"
+  ],
+  "ppe_present": ["lab_coat"],
+  "ppe_missing": ["goggles"],
+  "hazards_detected": ["no_goggles"],
+  "is_compliant": false,
+  "hazard_level": "medium",
+  "final_decision": "UNSAFE",
+  "explanation": "Missing goggles and hazard 'no_goggles' detected."
+}

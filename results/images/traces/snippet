@@ -1,0 +1,8 @@
+results/
+│
+├── metrics.txt        # Evaluation metrics for YOLOv11 PPE model
+└── traces/            # Sample inference traces from the multi-agent system
+    ├── trace_001.json
+    ├── trace_002.json
+    ├── trace_003.json
+    └── trace_004.json

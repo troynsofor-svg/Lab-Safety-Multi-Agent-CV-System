@@ -10,13 +10,13 @@ Tier 3 – This project uses three agents (Perception Agent, Safety Agent, Orche
 
 Problem & Solution
 # The Problem
-Laboratory environments require strict PPE compliance to prevent chemical exposure, eye injuries, burns, and contamination. Manual monitoring is inconsistent, time‑consuming, and prone to human error. Safety officers cannot continuously observe every workstation, especially in large facilities.
+Laboratory environments need strict PPE compliance to stop chemical contact, eye injuries, burns, and infections. Manual monitoring is incompatible, laborious, and sensitive to human error. Safety officers can't continue to examine all the workstations, even in big facilities.
 
 # The Agent
-This multi‑agent system perceives lab scenes using YOLOv11, identifies PPE items and hazards, evaluates compliance, and produces a final safety decision. The Perception Agent detects objects, classifiers interpret PPE and hazards, and the Safety Reasoning Agent synthesizes all information into a structured SAFE/UNSAFE assessment.
+This multi‑agent system notices lab scenarios by applying YOLOv11, identifying PPE objects and hazards, evaluating compliance, and providing the last safety choice. The Perception Agent detects things, classifiers explain PPE and hazards, and the Safety Reasoning Agent synthesizes every detail into an organized SAFE/UNSAFE assessment.
 
 # Impact
-Laboratories, universities, and industrial facilities benefit from automated safety monitoring. The system reduces inspection time, prevents accidents, and improves compliance without requiring additional staff. It provides real‑time feedback that saves both time and operational cost.
+Labs, schools, and industrial facilities have advantages from automated safety monitoring. This system decreases evaluation periods, stops accidents, and enhances compliance without needing additional staff. It produces real‑time reviews that keeps both time and operational prices.
 
 # Agent Architecture
 Pipeline:  

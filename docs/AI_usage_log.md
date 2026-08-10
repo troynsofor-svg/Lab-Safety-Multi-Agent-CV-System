@@ -1,103 +1,105 @@
 AI Usage Log — PPE Detection Project
-(A professional log documenting all AI‑assisted actions for compliance and transparency.)
+(A professional log documenting every AI‑assisted action for adherence and translucency.)
 
-1. AI Tools Used
-Microsoft Copilot — architecture guidance, debugging, dataset verification
+# AI Tools Used
 
-Ultralytics YOLOv11 — model training, inference, evaluation
+1. Microsoft Copilot — architecture guidance, troubleshooting, data validation
 
-Roboflow — dataset annotation, preprocessing, YOLOv11 export
+2. Ultralytics YOLOv11 — model fitting, inference, evaluation
 
-Google Colab — training environment
+3. Roboflow — data labeling, preprocessing, YOLOv11 export
 
-2. AI‑Assisted Tasks
-Dataset Tasks
-Guided user to correct Roboflow export workflow
+4. Google Colab — training environment
 
-Identified corrupted ZIP file
+# AI‑Assisted Tasks
+# Dataset Tasks
+Guided user to make corrections on the Roboflow export workflow
 
-Verified dataset structure
+Spotted corrupted ZIP file
 
-Ensured correct YAML path usage
+Confirmed dataset structure
 
-Training Tasks
-Corrected model name (yolo11n.pt)
+Confirmed the accurate YAML path usage
 
-Cleared Ultralytics cache to fix dataset path override
+# Training Tasks
+Corrected the model name (yolo11n.pt)
 
-Provided correct training configuration
+Got rid of or wiped away the Ultralytics cache to fix dataset path override
 
-Debugged FileNotFound errors
+Produced the right training configuration
 
-Architecture Tasks
-Generated full system architecture document
+Troubleshooted the file not found errors
 
-Generated AI usage log
+# Architecture Tasks
+Produced an entire system architecture document
 
-Provided structured training pipeline
+Produced AI usage log
 
-3. AI‑Generated Code
-AI assisted with:
+Created an organized training pipeline
 
-YOLOv11 training script
+# AI‑Generated Code
+AI helped with:
 
-Dataset path corrections
+YOLOv11 training codes
+
+Dataset directory corrections
 
 Cache reset commands
 
-Inference examples
+Inference instances
 
-All code was reviewed and executed by the user.
+All the codes were reviewed and executed by the owner.
 
-4. AI‑Generated Documentation
-Architecture document
+# AI‑Generated Documentation
 
-AI usage log
+1. Technical design document
 
-Dataset verification summary
+2. AI usage log
 
-Training instructions
+3. Data audit log
 
-Roboflow export instructions
+4. Training directions
 
-5. Human‑Performed Tasks
-Dataset annotation in Roboflow
+5. Roboflow export directions
+
+# Human‑Performed Tasks
+Data labeling in Roboflow
 
 ZIP upload to Google Drive
 
-Running Colab cells
+Running the notebook cells
 
-Reviewing training outputs
+Looking and going over training outputs
 
-Managing project files
+Adjusting project files
 
-6. AI Limitations
-Cannot access private files directly
+# AI Limitations
+Cannot access personal files directly
 
-Cannot generate copyrighted content
+Cannot provide the copyrighted content
 
-Cannot run code locally
+Cannot execute the codes locally
 
-Cannot view images unless uploaded
+Cannot look at pictures unless they're uploaded
 
-7. Compliance Notes
-No copyrighted text reproduced
+# Adherence Notes
+No copyrighted text produced again
 
-No personal data stored
+No private data kept
 
-No predictions about political outcomes
+No expectations about political consequences
 
-No unsafe content generated
+No unsafe content produced
 
-8. Summary
+# Summary
 AI was used responsibly to:
 
-Debug dataset issues
+Troubleshoot dataset problems
 
-Correct YOLO training errors
+Make corrections on YOLO training errors
 
-Generate documentation
+Provide documentation
 
-Provide architectural guidance
+Create architectural guidance
 
-Improve workflow efficiency
+Enhance workflow proficiency

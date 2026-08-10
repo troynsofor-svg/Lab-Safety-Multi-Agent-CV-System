@@ -1,88 +1,88 @@
 
-Sample Dataset (10 Images Total)
-A curated set of non‑copyrighted, lab‑like images for quick testing of your multi‑agent CV system.
+# Sample Dataset
+A curated set of non‑copyrighted, lab‑like pictures for fast testing of my multi‑agent CV system.
 
 1. Person Wearing Full PPE
-A person in a lab coat, gloves, and goggles standing in a clean lab environment.
-Used to test correct PPE detection and no‑violation reasoning.
+A human wearing a white coat, gloves, and lab goggles being in a clean laboratory.
+Does evaluate accurate PPE detection and no‑violation reasoning.
 
 2. Person Missing Gloves
-A person wearing a lab coat and goggles but no gloves, standing near a workbench.
-Used to test PPE violation detection and LLM reasoning severity.
+A human wearing a white coat and lab goggles but no gloves, standing close to a chair.
+Does the evaluation of PPE violation detection and LLM reasoning severity.
 
 3. Person Near Open Flame
-A person leaning over a small open flame burner.
-Tests hazard proximity rules and distance threshold logic.
+A human leaning against a tiny open flame burner.
+Evaluates hazard proximity policies and similarity threshold.
 
 4. Chemical Container With Label
-A bottle labeled “Acetone” or similar, placed on a lab bench.
-Used to test hazard detection and OCR extraction.
+A bottle named “Acetone” or same, placed on a chair.
+Does evaluate hazard detection and OCR extraction.
 
 5. Cluttered Lab Bench
-Beakers, pipettes, and containers scattered on a bench.
-Tests false‑positive robustness and scene complexity handling.
+Beakers, pasteur pipettes, and vessels scattered on a bench.
+Evaluates false‑positive reliability and environmental intricacy handling.
 
 6. Empty Lab Room
-A clean lab with no people or hazards.
-Tests no‑detection stability and agent graceful handling.
+A clean laboratory with no humans or dangers.
+Tests no‑detection balance and agent robust error recovery.
 
 7. Person Wearing Only Street Clothes
-A person in casual clothing inside a lab environment.
-Tests PPE missing detection and LLM explanation quality.
+A human wearing everyday clothes inside a laboratory environment.
+Evaluates the PPE skipping detection and LLM justification quality.
 
 8. Overexposed Image
-Bright lighting causing washed‑out colors.
-Tests robustness to poor image quality.
+Bright lighting leading to washed‑out colors.
+Evaluates reliability to bad picture quality.
 
 9. Blurry Image
-Motion‑blurred photo of a person in a lab.
-Tests preprocessing error handling and low‑confidence detection.
+Motion‑blurred image of a human in a laboratory.
+Evaluates reliability, error trapping, and low‑confidence detection.
 
 10. Non‑Lab Image (Control Case)
-A random indoor scene (e.g., office or kitchen).
-Tests unexpected content handling and LLM reasoning fallback.
+A casual indoor view (e.g., office or kitchen).
+Evaluates unpredicted content handling and LLM reasoning fallback.
 
 
-A. Normal / Safe Scenarios (No Violations)
-Full PPE, clean lab — Person wearing lab coat, gloves, goggles; no hazards present.
+# A. Normal / Safe Scenarios (No Violations)
+Entire PPE, clean laboratory — A person wearing white coat, gloves, eye goggles; no dangers available.
 
-Empty lab room — No people, no hazards; agent should produce empty detections.
+Empty laboratory — No humans, no dangers; agent needs to provide empty detections.
 
-Chemical container far away — Hazard present but no person nearby; no violation.
+Chemical container far away — Hazard available but nobody close; no violation.
 
-Proper PPE near equipment — Person near microscope or computer; no hazard.
+Proper PPE near equipment — A human close to microscope or computer; no hazard.
 
 Multiple people all compliant — Group wearing PPE; no hazards.
 
-B. PPE Violation Scenarios
-Missing gloves near flame — Person close to open flame without gloves.
+# B. PPE Violation Scenarios
+Missing gloves near flame — A human that's near an open flame without wearing gloves.
 
-Missing goggles near chemicals — Person handling chemical container without eye protection.
+Missing goggles near chemicals — A human managing chemical container without wearing googles.
 
-Street clothes in lab — Person wearing casual clothing in lab environment.
+Street clothes in lab — A human wearing everyday clothes in laboratory environment.
 
-Lab coat only, no gloves or goggles — Partial PPE; agent should detect multiple missing items.
+Lab coat only, no gloves or goggles — Partial PPE; agent needs to detect tons of missing items.
 
-PPE worn incorrectly — Goggles on forehead, gloves off.
+PPE worn the wrong way — Goggles on the forehead and gloves off.
 
-C. Hazard Proximity Scenarios
-Person leaning over open flame — Distance threshold violated.
+# C. Hazard Proximity Scenarios
+Person leaning against an open flame — Similarity threshold rule broken.
 
-Person reaching toward chemical container — Close proximity to hazard.
+A human reaching toward a chemical bottle — Near proximity to danger.
 
-Person between two hazards — Multiple hazard interactions.
+Person between two hazards — Tons of hazard interactions.
 
-Child or non‑lab person near hazard — Unexpected subject near hazard.
+Child or non‑lab person near hazard — Unpredicted subject near danger.
 
-Hazard partially occluded — Tests YOLO robustness.
+Hazard partially occluded — Evaluates YOLO reliability.
 
-D. OCR / Label Scenarios
-Chemical label clearly visible — OCR should extract text like “Acetone”.
+# D. OCR / Label Scenarios
+Chemical label clearly visible — OCR needs to draw out text such as “Acetone”.
 
-Warning sign partially visible — OCR should extract partial text.
+Warning sign partially visible — OCR needs to draw out partial text.
 
-Blurry chemical label — OCR should fail gracefully.
+Blurry chemical label — OCR could fail gracefully.
 
-Non‑lab text in scene — OCR should detect irrelevant text.
+Non‑lab text in scene — OCR could detect unrelated text.
 
-Multiple labels in one image — OCR should return multiple text blocks.
+Tons of labels in one picture — OCR need to return tons of text blocks.

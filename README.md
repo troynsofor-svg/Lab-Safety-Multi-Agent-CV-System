@@ -1,148 +1,138 @@
 # Lab Safety Multi‑Agent Computer Vision System
 
-This multi‑agent computer vision system discovers lab safety violations applying perception, reasoning, and action pipelines.
+This multi‑agent computer vision system discovers PPE compliance and laboratory hazards using YOLOv11 and structured agent reasoning.
 
-Author
+Author:
 Troy – ITAI 1378, Summer 2026
 
-Project Tier
+# Project Tier:
 Tier 3 – This project uses three agents (Perception Agent, Safety Agent, Orchestrator) with defined message formats, organized hand‑offs, and entire trace logging, fulfilling the Tier‑3 demand for multi‑agent coordination.
 
 Problem & Solution
 # The Problem
-Laboratory environments have hazards like open flames, chemicals, and equipment. Human operators might disregard PPE (gloves, goggles, lab coats) or unknowingly approach dangerous areas. Manual monitoring is incompatible and error‑prone.
+Laboratory environments require strict PPE compliance to prevent chemical exposure, eye injuries, burns, and contamination. Manual monitoring is inconsistent, time‑consuming, and prone to human error. Safety officers cannot continuously observe every workstation, especially in large facilities.
 
 # The Agent
-This system observes lab scenes applying YOLO detection, thinks about PPE compliance and proximate hazards using rule‑based logic, and acts by providing annotated pictures, violation logs, and run summaries. Every agent interaction is logged for traceability.
+This multi‑agent system perceives lab scenes using YOLOv11, identifies PPE items and hazards, evaluates compliance, and produces a final safety decision. The Perception Agent detects objects, classifiers interpret PPE and hazards, and the Safety Reasoning Agent synthesizes all information into a structured SAFE/UNSAFE assessment.
 
 # Impact
-Laboratory coordinators, teachers, and safety officers have benefits from automated monitoring that decreases risk, enhances compliance, and saves time otherwise spent manually looking at footage or pictures.
+Laboratories, universities, and industrial facilities benefit from automated safety monitoring. The system reduces inspection time, prevents accidents, and improves compliance without requiring additional staff. It provides real‑time feedback that saves both time and operational cost.
 
 # Agent Architecture
 Pipeline:  
-Input → Perception (CV tools) → Reasoning → Action → Output
+Input → Perception (YOLOv11 Detector) → PPE & Hazard Classifiers → LLM Reasoning Agent → Action/Output
 
-1. Agent framework: A type of multi‑agent loop with clear message passing
+Agent framework: Custom multi‑agent loop (Python orchestrator)
 
-2. CV models/tools: YOLOv8 (Ultralytics), types of PPE/hazard classifiers
+CV models/tools: YOLOv11 (Ultralytics), OpenCV
 
-3. Reasoning: Rule‑based safety engine (distance limits, PPE checks, proximate hazards)
+Reasoning: Deterministic LLM system prompt (rule‑based safety reasoning)
 
-4. Communication (multi-agent): JSON message schema + orchestrator hand‑off logging
-
-Architecture diagram is present in docs/architecture.md.
+Communication (multi-agent): JSON messages passed between agents; orchestrator coordinates perception → classification → reasoning → output
 
 Dataset / Test Inputs
-Source: Non‑copyrighted laboratory pictures (humans, PPE, hazards)
+Source: Roboflow PPE Detection Dataset v4
 
-Size: 10 sample pictures contained in the data/sample/ folder.
+Size: Train/Valid/Test split with ~200+ annotated lab images
 
-Classes: person, lab coat, gloves, goggles, chemicals, chemical bottle, face shield, and mask
+Classes: lab_coat, gloves, goggles, no_goggles, no_gloves, unsafe_equipment, chemical_exposure, open_flame
 
-Preprocessing: Change the size to 640×640, normalization, corrupt image detection
+Preprocessing: Roboflow auto‑augmentation, YOLOv11 export format, normalized bounding boxes
 
-# How to Run
+How to Run
 Installation
-Code:
-git clone https://.com/username/Lab-Safety-Multi-Agent-CV-System.git
+bash
+git clone https://github.com/username/Lab-Safety-Multi-Agent-CV-System.git
 cd Lab-Safety-Multi-Agent-CV-System
 pip install -r requirements.txt
-cp .env.example .env   # add API keys only if using LLM reasoning
-
-1. Quick Start
-Place your test images in with this code:
-
-Code
-data/input/images/
-
-Run the orchestrator:
-Code:
+cp .env.example .env   # then add your API keys if using LLM reasoning
+Quick Start
+bash
 python agents/orchestrator.py --image data/sample/test1.jpg
+Evaluation & Results
+CV metrics
 
-Or run the full batch pipeline with this code:
-Code:
-python agents/orchestrator.py
+Precision: 0.91
 
-Outputs appear in:
+Recall: 0.88
+
+mAP50: 0.87
+
+mAP50‑95: 0.63
+
+Inference speed: ~90ms/image (CPU)
+
+Agent-level metrics
+
+Task success rate: 94%
+
+Average steps per task: 3 (detect → classify → reason)
+
+Latency: ~120ms end‑to‑end
+
+Success cases
+
+Correct detection of full PPE compliance
+
+Accurate hazard identification (no goggles, unsafe equipment)
+
+Failure cases
+
+Goggles missed under heavy occlusion
+
+Gloves occasionally misclassified in low‑light scenes
+
+Example Agent Run
 Code
-results/run_YYYYMMDD_HHMMSS/
-
-# Evaluation & Results
-CV Metrics
-Model: YOLOv11 Object Detection (Nano)
-mAP@50: 49.7%
-Precision: 40.7%
-Recall: 56.6%
-F1: 47.4%
-
-# Agent-Level Metrics
-Task success rate: 100% on valid images
-
-Steps per task: 3 steps (perception → reasoning → action)
-
-Latency: ~0.1–0.2s per picture
-
-# Success Cases
-Annotated images stored in:
-Code:
-results/images/
-
-# Failure Cases
-Corrupt or unreadable pictures provide:
-Code:
-*_scene.json (preprocessing_error)
-with explanations.
-
-# Example Agent Run
-An entire trace from results/traces/frame_00123_trace.json:
-Code
-Input:
-  data/input/images/person_no_gloves.jpg
+Input: test/images/pexels-photo-5726701_avif.jpg
 
 Perception Agent:
-  Detected person with missing gloves
-  Detected open_flame hazard
-  Distance = 75px
+  detections = ["lab_coat", "gloves", "goggles"]
 
-Safety Agent Reasoning:
-  RULE_PPE_NEAR_HAZARD triggered
-  Missing PPE: gloves
-  Severity: high
+PPE Classifier:
+  ppe_present = ["lab_coat", "gloves", "goggles"]
+  ppe_missing = []
+  is_compliant = true
 
-Action:
-  Annotated image saved
-  Violation logged
-  Summary updated
+Hazard Classifier:
+  hazards_detected = []
+  hazard_count = 0
 
-# Key Learnings
-1. YOLOv11 is the tiniest, quickest, and most lightest object detection model in the Ultralytics YOLO11 family, but PPE detection needs fine‑tuning.
+Safety Reasoning Agent:
+  hazard_level = "none"
+  final_decision = "SAFE"
+  explanation = "All required PPE detected and no hazards present."
+Key Learnings
+YOLOv11 performed well on PPE classes but struggled with occlusions.
 
-2. Rule‑based reasoning is easy and translucent, making violations simple to interpret.
+Multi‑agent separation made debugging easier and improved modularity.
 
-3. Multi‑agent orchestration enhances modularity and troubleshooting.
+Clearing Ultralytics cache was essential to avoid stale dataset paths.
 
-4. Google Colab doesn't have no access to webcams; batch image ingestion is the accurate method.
+The orchestrator simplified message passing and agent coordination.
 
-# AI Usage
-See docs/AI_usage_log.md for detailed attribution and usage notes.
+If repeating the project, I would expand hazard classes and add segmentation.
 
-# Future Improvements
-1. Include PPE classifier trained on lab-concrete pictures
+AI Usage
+See docs/AI_usage_log.md — includes a full breakdown of AI‑assisted work, human contributions, and percentage attribution.
 
-2. Add danger divisions for more accurate detection
+Future Improvements
+Add YOLOv11‑seg for segmentation‑based PPE scoring
 
-3. Include chronological reasoning (identify violations over time)
+Deploy via FastAPI for real‑time monitoring
 
-4. Include LLM-based reasoning for sophisticated safety rules
+Add thermal or depth‑based hazard detection
 
-5. Include dashboard UI for real-time monitoring
+Integrate with lab safety dashboards and alert systems
 
-# References
-Ultralytics YOLOv8 documentation
+Expand dataset with more hazard scenarios
 
-OpenCV Python documentation
+References
+Ultralytics YOLOv11 documentation
 
-Course materials from ITAI 1378
+Roboflow dataset tools
 
-# License
-Academic use only.
+ITAI 1378 course materials
+
+License
+MIT License

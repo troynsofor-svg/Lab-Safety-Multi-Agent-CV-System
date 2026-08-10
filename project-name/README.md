@@ -142,7 +142,7 @@ Goggles and gloves might be skipped when they're partially hidden.
 Hazard categories depend on dataset quality:  
 If hazards are under‑represented, detection might be weaker.
 
-LLM reasoning is deterministic  
+LLM reasoning is deterministic:  
 It just uses created detections — no external knowledge.
 
 # 6. License

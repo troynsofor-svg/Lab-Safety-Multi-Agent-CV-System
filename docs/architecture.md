@@ -1,7 +1,7 @@
 Project Architecture Document — PPE Detection (YOLOv11)
 (A complete, professional architecture doc that the user can submit or add in that user's README.)
 
-1. System Overview
+# 1. System Overview
 The PPE Detection System is a image processing workflow built using Ultralytics YOLOv11, trained on a Roboflow‑generated dataset having categorized pictures of lab environments. The system detects PPE adherence indicators like lab coats, gloves, goggles, chemicals, etc.
 
 The architecture contains of 4 major layers:
@@ -14,7 +14,7 @@ Inference Layer — Real‑time or batch object detection
 
 Evaluation Layer — Metrics, error matrix, and evaluation outputs
 
-2. Dataset Architecture
+# 2. Dataset Architecture
 My dataset structure (verified from my Drive):
 
 Code

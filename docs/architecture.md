@@ -14,7 +14,25 @@ Inference Layer — Real‑time or batch image/video detection
 
 Evaluation Layer — Metrics, confusion matrix, and validation outputs
 
+2. Dataset Architecture
+Your dataset structure (verified from your Drive):
 
+Code
+ppe_yolo11/
+│
+├── data.yaml
+├── train/
+│   ├── images/
+│   └── labels/
+│
+├── valid/
+│   ├── images/
+│   └── labels/
+│
+└── test/
+    ├── images/
+    └── labels/
+    
 Dataset Characteristics
 Source: Roboflow Version v4
 

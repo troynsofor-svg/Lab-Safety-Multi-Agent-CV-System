@@ -2,43 +2,53 @@
 # Sample Dataset
 A curated set of non‑copyrighted, lab‑like pictures for fast testing of my multi‑agent CV system.
 
-1. Person Wearing Full PPE
+1. Person Wearing Full PPE:
+
 A human wearing a white coat, gloves, and lab goggles being in a clean laboratory.
 Does evaluate accurate PPE detection and no‑violation reasoning.
 
-2. Person Missing Gloves
+2. Person Missing Gloves:
+
 A human wearing a white coat and lab goggles but no gloves, standing close to a chair.
 Does the evaluation of PPE violation detection and LLM reasoning severity.
 
-3. Person Near Open Flame
+3. Person Near Open Flame:
+
 A human leaning against a tiny open flame burner.
 Evaluates hazard proximity policies and similarity threshold.
 
-4. Chemical Container With Label
+4. Chemical Container With Label:
+
 A bottle named “Acetone” or same, placed on a chair.
 Does evaluate hazard detection and OCR extraction.
 
-5. Cluttered Lab Bench
+5. Cluttered Lab Bench:
+
 Beakers, pasteur pipettes, and vessels scattered on a bench.
 Evaluates false‑positive reliability and environmental intricacy handling.
 
-6. Empty Lab Room
+6. Empty Lab Room:
+
 A clean laboratory with no humans or dangers.
 Tests no‑detection balance and agent robust error recovery.
 
-7. Person Wearing Only Street Clothes
+7. Person Wearing Only Street Clothes:
+
 A human wearing everyday clothes inside a laboratory environment.
 Evaluates the PPE skipping detection and LLM justification quality.
 
-8. Overexposed Image
+8. Overexposed Image:
+
 Bright lighting leading to washed‑out colors.
 Evaluates reliability to bad picture quality.
 
-9. Blurry Image
+9. Blurry Image:
+
 Motion‑blurred image of a human in a laboratory.
 Evaluates reliability, error trapping, and low‑confidence detection.
 
-10. Non‑Lab Image (Control Case)
+10. Non‑Lab Image (Control Case):
+
 A casual indoor view (e.g., office or kitchen).
 Evaluates unpredicted content handling and LLM reasoning fallback.
 

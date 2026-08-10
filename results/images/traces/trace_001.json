@@ -13,3 +13,32 @@
   "final_decision": "SAFE",
   "explanation": "All required PPE detected and no hazards present."
 }
+
+{
+  "scene": "test/images/pexels-photo-5726701_avif.jpg",
+
+  "perception_agent": {
+    "detections": [
+      {"class": "lab_coat", "conf": 0.92},
+      {"class": "gloves", "conf": 0.88},
+      {"class": "goggles", "conf": 0.90}
+    ]
+  },
+
+  "ppe_classifier": {
+    "ppe_present": ["lab_coat", "gloves", "goggles"],
+    "ppe_missing": [],
+    "is_compliant": true
+  },
+
+  "hazard_classifier": {
+    "hazards_detected": [],
+    "hazard_count": 0
+  },
+
+  "safety_reasoning_agent": {
+    "hazard_level": "none",
+    "final_decision": "SAFE",
+    "explanation": "All required PPE detected and no hazards present."
+  }
+}

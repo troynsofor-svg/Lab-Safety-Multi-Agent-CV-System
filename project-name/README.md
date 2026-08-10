@@ -130,19 +130,19 @@ json
   "explanation": "All required PPE detected and no hazards present."
 }
 # 5. Limitations
-The CPU training being super slow:  
-YOLOv11 performs better with GPU acceleration.
+The CPU training is very slow:  
+YOLOv11 works better with GPU acceleration.
 
-# Small dataset limitations  
-Some PPE categories might have lower recall because of limited samples.
+Small dataset has drawbacks: 
+Some PPE categories might contain lower recall because of limited samples.
 
 Occlusions decrease accuracy:  
 Goggles and gloves might be skipped when they're partially hidden.
 
-Hazard categories depend on dataset quality:  
-If hazards are under‑represented, detection might be weaker.
+Hazard categories vary on dataset quality:  
+If hazards are overlooked, that might lead to detection to be weaker.
 
-LLM reasoning is deterministic:  
+LLM reasoning is predetermined:  
 It just uses created detections — no external knowledge.
 
 # 6. License

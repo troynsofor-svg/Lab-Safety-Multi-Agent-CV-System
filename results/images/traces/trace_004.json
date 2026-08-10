@@ -12,3 +12,31 @@
   "final_decision": "UNSAFE",
   "explanation": "Gloves missing; PPE compliance not met."
 }
+
+{
+  "scene": "test/images/female-scientist.jpg",
+
+  "perception_agent": {
+    "detections": [
+      {"class": "lab_coat", "conf": 0.91},
+      {"class": "goggles", "conf": 0.89}
+    ]
+  },
+
+  "ppe_classifier": {
+    "ppe_present": ["lab_coat", "goggles"],
+    "ppe_missing": ["gloves"],
+    "is_compliant": false
+  },
+
+  "hazard_classifier": {
+    "hazards_detected": [],
+    "hazard_count": 0
+  },
+
+  "safety_reasoning_agent": {
+    "hazard_level": "none",
+    "final_decision": "UNSAFE",
+    "explanation": "Gloves missing; PPE compliance not met."
+  }
+}

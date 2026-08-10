@@ -23,7 +23,7 @@ IoU — intersection‑over‑union for bounding boxes
 
 Inference speed — seconds per image
 
-PPE Detection — YOLOv11 Evaluation Metrics
+# PPE Detection — YOLOv11 Evaluation Metrics
 ==========================================
 
 Model: yolo11n.pt (fine‑tuned)
@@ -99,7 +99,8 @@ across PPE classes and hazard classes, with high precision and recall.
 Inference speed is suitable for real-time or near-real-time use.
 Model is ready for deployment in safety monitoring applications.
 
-PPE Detection — YOLOv11 Evaluation Metrics
+
+# PPE Detection — YOLOv11 Evaluation Metrics
 ==========================================
 
 Model: yolo11n.pt (fine‑tuned)

@@ -1,5 +1,5 @@
-models/ — Model Sources & Description
-The models/ directory has the trained YOLOv11 models utilized from the PPE Detection System. The files are created during the training procedure in Google Colab using the Ultralytics YOLOv11 framework.
+# Models — Model Sources & Description
+The models directory has the trained YOLOv11 models utilized from the PPE Detection System. The files are created during the training procedure in Google Colab using the Ultralytics YOLOv11 framework.
 
 Contents
 Code

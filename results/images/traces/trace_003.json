@@ -12,3 +12,31 @@
   "final_decision": "UNSAFE",
   "explanation": "Multiple hazards detected and all PPE missing."
 }
+
+{
+  "scene": "test/images/fluorescent-solution.jpg",
+
+  "perception_agent": {
+    "detections": [
+      {"class": "unsafe_equipment", "conf": 0.87},
+      {"class": "no_gloves", "conf": 0.90}
+    ]
+  },
+
+  "ppe_classifier": {
+    "ppe_present": [],
+    "ppe_missing": ["lab_coat", "gloves", "goggles"],
+    "is_compliant": false
+  },
+
+  "hazard_classifier": {
+    "hazards_detected": ["unsafe_equipment", "no_gloves"],
+    "hazard_count": 2
+  },
+
+  "safety_reasoning_agent": {
+    "hazard_level": "high",
+    "final_decision": "UNSAFE",
+    "explanation": "Multiple hazards detected and all PPE missing."
+  }
+}

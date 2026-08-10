@@ -150,38 +150,6 @@ Deploy via FastAPI
 
 Convert to ONNX for edge devices
 
-# High‑Level Architecture Diagram  
-                ┌──────────────────────────────┐
-                │          Input Image         │
-                └──────────────────────────────┘
-                               │
-                               ▼
-                ┌──────────────────────────────┐
-                │      Perception Agent         │
-                │  (YOLOv11 ObjectDetector)     │
-                └──────────────────────────────┘
-                               │
-                               ▼
-        ┌──────────────────────────────┬──────────────────────────────┐
-        │                              │                              │
-        ▼                              ▼                              ▼
-┌────────────────┐          ┌──────────────────────┐       ┌──────────────────────┐
-│ PPEClassifier  │          │ HazardClassifier     │       │ Metadata Extractor   │
-│ (PPE compliance│          │ (unsafe conditions)  │       │ (optional)           │
-└────────────────┘          └──────────────────────┘       └──────────────────────┘
-        │                              │                              │
-        └───────────────┬──────────────┴───────────────┬─────────────┘
-                        ▼                               ▼
-                ┌──────────────────────────────────────────────────────┐
-                │                Safety Reasoning Agent                │
-                │                (LLM System Prompt)                   │
-                └──────────────────────────────────────────────────────┘
-                               │
-                               ▼
-                ┌──────────────────────────────┐
-                │         Final Decision        │
-                │ SAFE / UNSAFE + Explanation   │
-                └──────────────────────────────┘
 # Agent Responsibilities
 Perception Agent
 Runs YOLOv11 inference

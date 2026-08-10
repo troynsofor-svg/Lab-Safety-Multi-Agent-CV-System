@@ -1,5 +1,5 @@
 models/ — Model Sources & Description
-The models/ directory contains the trained YOLOv11 models used by the PPE Detection System. These files are generated during training in Google Colab using the Ultralytics YOLOv11 framework.
+The models/ directory has the trained YOLOv11 models utilized from the PPE Detection System. The files are created during the training procedure in Google Colab using the Ultralytics YOLOv11 framework.
 
 Contents
 Code
@@ -10,16 +10,16 @@ models/
 └── README.md   ← (this description)
 Model Sources
 Base Model:  
-The training process begins with the official Ultralytics YOLOv11n checkpoint:
+This training procedure starts with the valid Ultralytics YOLOv11n checkpoint:
 
 Source: Ultralytics Model Zoo
 
 File: yolo11n.pt
 
-Purpose: Lightweight backbone for fast training and inference
+Purpose: Lightweight backup for quick training and prediction.
 
 Training Dataset:  
-The model is trained on a Roboflow‑generated YOLOv11 dataset, exported from:
+This model is trained on a Roboflow‑generated YOLOv11 dataset, transferred from:
 
 Project: PPE Detection
 
@@ -39,37 +39,39 @@ Device: CPU
 
 Epochs: 50
 
-Image Size: 640
+Picture Size: 640
 
 Optimizer: Adam
 
 Learning Rate: 0.001
 
 Model Outputs
-After training, Ultralytics automatically generates two model files:
+After the training process, Ultralytics spontaneously produces two model files:
 
-best.pt
+# best.pt:
+
 The checkpoint with the highest validation performance
 
-Selected using early stopping and validation metrics
+Chosen when applying early prevention and validation metrics
 
-Recommended for deployment and inference
+Suggested for deployment and prediction
 
 Located in:
 
-Code
 models/best.pt
-last.pt
-The final checkpoint from the last training epoch
 
-Useful for debugging or continuing training
+# last.pt:
+
+The last checkpoint from the final training epoch
+
+Valuable for troubleshooting or for persisting the training process
 
 Located in:
 
-Code
 models/last.pt
-How These Models Are Produced
-The models are created by running:
+
+# How These Models Are Produced
+The models are produced by running:
 
 python
 from ultralytics import YOLO
@@ -85,16 +87,14 @@ model.train(
     optimizer="Adam",
     device="cpu"
 )
-Ultralytics then saves the trained weights automatically into:
+Ultralytics keeps the model parameters spontaneously into:
 
-Code
 runs/detect/train*/weights/
-These files are manually copied into the models/ folder in GitHub for version control and reproducibility.
+The files are physically duplicated into the models folder in GitHub for source control and duplicability.
 
-Usage
-To run inference using the trained model:
+# Usage:
+To run the prediction by applying the trained model use this code:
 
-python
 from ultralytics import YOLO
 
 model = YOLO("models/best.pt")

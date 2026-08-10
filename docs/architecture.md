@@ -150,3 +150,120 @@ Deploy via FastAPI
 
 Convert to ONNX for edge devices
 
+# High‑Level Architecture Diagram  
+                ┌──────────────────────────────┐
+                │          Input Image         │
+                └──────────────────────────────┘
+                               │
+                               ▼
+                ┌──────────────────────────────┐
+                │      Perception Agent         │
+                │  (YOLOv11 ObjectDetector)     │
+                └──────────────────────────────┘
+                               │
+                               ▼
+        ┌──────────────────────────────┬──────────────────────────────┐
+        │                              │                              │
+        ▼                              ▼                              ▼
+┌────────────────┐          ┌──────────────────────┐       ┌──────────────────────┐
+│ PPEClassifier  │          │ HazardClassifier     │       │ Metadata Extractor   │
+│ (PPE compliance│          │ (unsafe conditions)  │       │ (optional)           │
+└────────────────┘          └──────────────────────┘       └──────────────────────┘
+        │                              │                              │
+        └───────────────┬──────────────┴───────────────┬─────────────┘
+                        ▼                               ▼
+                ┌──────────────────────────────────────────────────────┐
+                │                Safety Reasoning Agent                │
+                │                (LLM System Prompt)                   │
+                └──────────────────────────────────────────────────────┘
+                               │
+                               ▼
+                ┌──────────────────────────────┐
+                │         Final Decision        │
+                │ SAFE / UNSAFE + Explanation   │
+                └──────────────────────────────┘
+# Agent Responsibilities
+Perception Agent
+Runs YOLOv11 inference
+
+Extracts bounding boxes, class names, confidence scores
+
+Passes raw detections to classifiers
+
+PPEClassifier
+Checks for required PPE:
+
+lab_coat
+
+gloves
+
+goggles
+
+Determines missing PPE
+
+Returns compliance boolean
+
+HazardClassifier
+Detects unsafe conditions:
+
+no_goggles
+
+no_gloves
+
+unsafe_equipment
+
+chemical_exposure
+
+open_flame
+
+Returns hazard list + severity
+
+Safety Reasoning Agent (LLM)
+Consumes:
+
+YOLO detections
+
+PPE compliance results
+
+Hazard detection results
+
+Produces:
+
+Final safety decision
+
+Hazard level
+
+Explanation
+
+Orchestrator
+Coordinates all agents
+
+Handles input → output pipeline
+
+Produces structured JSON results
+
+# Data Flow Diagram
+Image → YOLOv11 → detections → PPEClassifier → PPE results
+                                   │
+                                   └→ HazardClassifier → hazard results
+                                                        │
+                                                        └→ LLM → final decision
+# Model Architecture
+Backbone: YOLOv11 CSP‑Darknet
+
+Neck: PAN‑FPN
+
+Head: Decoupled detection head
+
+Training: 50 epochs, Adam optimizer, imgsz=640
+
+# Multi‑Agent Benefits
+Modular
+
+Extensible
+
+Transparent reasoning
+
+Easy to debug
+
+Supports future agents (e.g., segmentation, thermal imaging)

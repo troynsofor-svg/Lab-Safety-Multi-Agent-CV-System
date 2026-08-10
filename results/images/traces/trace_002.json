@@ -12,3 +12,31 @@
   "final_decision": "UNSAFE",
   "explanation": "Missing goggles and hazard 'no_goggles' detected."
 }
+
+{
+  "scene": "test/images/images-7.jpeg",
+
+  "perception_agent": {
+    "detections": [
+      {"class": "lab_coat", "conf": 0.89},
+      {"class": "no_goggles", "conf": 0.91}
+    ]
+  },
+
+  "ppe_classifier": {
+    "ppe_present": ["lab_coat"],
+    "ppe_missing": ["goggles"],
+    "is_compliant": false
+  },
+
+  "hazard_classifier": {
+    "hazards_detected": ["no_goggles"],
+    "hazard_count": 1
+  },
+
+  "safety_reasoning_agent": {
+    "hazard_level": "medium",
+    "final_decision": "UNSAFE",
+    "explanation": "Missing goggles and hazard 'no_goggles' detected."
+  }
+}

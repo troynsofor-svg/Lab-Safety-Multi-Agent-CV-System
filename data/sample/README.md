@@ -1,11 +1,10 @@
-
 # Sample Dataset
 A curated set of non‑copyrighted, lab‑like pictures for fast testing of my multi‑agent CV system.
 
 1. Person Wearing Full PPE:
 
 A human wearing a white coat, gloves, and lab goggles being in a clean laboratory.
-Does evaluate accurate PPE detection and no‑violation reasoning.
+Does evaluation on the accurate PPE detection and no‑violation reasoning.
 
 2. Person Missing Gloves:
 
@@ -62,7 +61,7 @@ Chemical container far away — Hazard available but nobody close; no violation.
 
 Proper PPE near equipment — A human close to microscope or computer; no hazard.
 
-Multiple people all compliant — Group wearing PPE; no hazards.
+Multiple people have compliants — Group wearing PPE; no hazards.
 
 # B. PPE Violation Scenarios
 Missing gloves near flame — A human that's near an open flame without wearing gloves.

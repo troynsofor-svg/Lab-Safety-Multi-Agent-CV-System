@@ -94,4 +94,4 @@ Blurry chemical label — OCR could fail gracefully.
 
 Non‑lab text in scene — OCR could detect unrelated text.
 
-Tons of labels in one picture — OCR need to return tons of text blocks.
+Tons of labels in one picture — OCR needs to return tons of text blocks.
